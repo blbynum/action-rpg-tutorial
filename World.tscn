@@ -6,7 +6,7 @@
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=4]
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=6]
-[ext_resource path="res://World/Grass.png" type="Texture" id=7]
+[ext_resource path="res://World.gd" type="Script" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -492,6 +492,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/z_index = 0
 
 [node name="World" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 160, 90 )
@@ -539,72 +540,61 @@ position = Vector2( 184, 72 )
 [node name="Grass" type="YSort" parent="YSort"]
 
 [node name="Grass" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 32, 16 )
+position = Vector2( 32, 0 )
 
 [node name="Grass2" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 48, 16 )
+position = Vector2( 32, 16 )
 
 [node name="Grass3" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 32, 0 )
+position = Vector2( 48, 16 )
 
 [node name="Grass4" parent="YSort/Grass" instance=ExtResource( 6 )]
 position = Vector2( 48, 0 )
 
-[node name="Grass" parent="YSort/Grass/Grass4" instance=ExtResource( 6 )]
-position = Vector2( 64, 128 )
+[node name="Grass5" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 64, 0 )
 
-[node name="Grass" type="Sprite" parent="YSort/Grass/Grass4/Grass"]
-position = Vector2( 168, -72 )
-texture = ExtResource( 7 )
+[node name="Grass6" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 64, 16 )
 
-[node name="Grass" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -16, 0 )
-texture = ExtResource( 7 )
+[node name="Grass8" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 64, 48 )
 
-[node name="Grass2" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( 0, -16 )
-texture = ExtResource( 7 )
+[node name="Grass9" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 64, 64 )
 
-[node name="Grass3" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -40, 96 )
-texture = ExtResource( 7 )
+[node name="Grass10" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 64, 80 )
 
-[node name="Grass4" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -96, 96 )
-texture = ExtResource( 7 )
+[node name="Grass11" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 272, 32 )
 
-[node name="Grass5" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -88, -8 )
-texture = ExtResource( 7 )
+[node name="Grass12" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 272, 48 )
 
-[node name="Grass6" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -104, -8 )
-texture = ExtResource( 7 )
+[node name="Grass13" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 256, 48 )
 
-[node name="Grass7" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -88, -24 )
-texture = ExtResource( 7 )
+[node name="Grass14" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 224, 144 )
 
-[node name="Grass8" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -208, 32 )
-texture = ExtResource( 7 )
+[node name="Grass15" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 240, 144 )
 
-[node name="Grass9" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -208, 16 )
-texture = ExtResource( 7 )
+[node name="Grass16" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 240, 128 )
 
-[node name="Grass10" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -208, 0 )
-texture = ExtResource( 7 )
+[node name="Grass17" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 224, 128 )
 
-[node name="Grass11" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -208, -16 )
-texture = ExtResource( 7 )
+[node name="Grass18" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 112, 128 )
 
-[node name="Grass12" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -208, -32 )
-texture = ExtResource( 7 )
+[node name="Grass19" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 240, 0 )
 
-[node name="Grass13" type="Sprite" parent="YSort/Grass/Grass4/Grass/Grass"]
-position = Vector2( -208, -48 )
-texture = ExtResource( 7 )
+[node name="Grass20" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 112, 0 )
+
+[node name="Grass7" parent="YSort/Grass" instance=ExtResource( 6 )]
+position = Vector2( 64, 32 )
