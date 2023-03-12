@@ -24,7 +24,7 @@ func _ready():
 
 # every frame
 # delta represents divergence from 60 FPS
-func _physics_process(delta):
+func _process(delta):
 	match(state):
 		MOVE:
 			move_state(delta)
