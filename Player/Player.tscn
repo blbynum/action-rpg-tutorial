@@ -328,7 +328,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -484,7 +484,7 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=16]
 states/Attack/node = SubResource( 33 )
-states/Attack/position = Vector2( 605, 291.357 )
+states/Attack/position = Vector2( 605, 292.357 )
 states/Idle/node = SubResource( 15 )
 states/Idle/position = Vector2( 605, 174 )
 states/Run/node = SubResource( 18 )
@@ -506,7 +506,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, -9 )
 texture = ExtResource( 2 )
 hframes = 60
-frame = 24
+frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
@@ -530,6 +530,7 @@ anims/RunUp = SubResource( 6 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 16 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 17 )
 parameters/Attack/blend_position = Vector2( 0, 0 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
@@ -547,5 +548,6 @@ collision_mask = 8
 
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
 shape = SubResource( 36 )
+disabled = true
 
 [editable path="HitboxPivot/SwordHitbox"]
