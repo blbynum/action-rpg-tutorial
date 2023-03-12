@@ -515,7 +515,7 @@ tile_data = PoolIntArray( -65528, 0, 0, -65527, 0, 1, -65526, 0, 1, -65525, 0, 2
 position = Vector2( 128, 64 )
 
 [node name="Bush" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 96, 120 )
+position = Vector2( 125, 100 )
 
 [node name="Bush2" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 216, 152 )
