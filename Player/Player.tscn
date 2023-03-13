@@ -1,8 +1,9 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
 [ext_resource path="res://Overlap/Hitbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/SwordHitbox.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -627,9 +628,9 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=35]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=46]
+[sub_resource type="AnimationNodeStateMachineTransition" id=57]
 
 [sub_resource type="AnimationNodeStateMachine" id=16]
 states/Attack/node = SubResource( 33 )
@@ -637,10 +638,10 @@ states/Attack/position = Vector2( 605, 292.357 )
 states/Idle/node = SubResource( 15 )
 states/Idle/position = Vector2( 599, 174 )
 states/Roll/node = SubResource( 45 )
-states/Roll/position = Vector2( 401.296, 174 )
+states/Roll/position = Vector2( 999.296, 174 )
 states/Run/node = SubResource( 18 )
 states/Run/position = Vector2( 806.296, 174 )
-transitions = [ "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Idle", "Attack", SubResource( 34 ), "Attack", "Idle", SubResource( 35 ), "Roll", "Idle", SubResource( 47 ), "Idle", "Roll", SubResource( 46 ) ]
+transitions = [ "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Idle", "Attack", SubResource( 34 ), "Attack", "Idle", SubResource( 35 ), "Roll", "Run", SubResource( 56 ), "Run", "Roll", SubResource( 57 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -378.704, 117.364 )
 
@@ -700,6 +701,7 @@ __meta__ = {
 [node name="SwordHitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
 position = Vector2( 15, 0 )
 collision_mask = 8
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
 shape = SubResource( 36 )

@@ -18,10 +18,12 @@ var roll_vector = Vector2.DOWN
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var swordHitbox = $HitboxPivot/SwordHitbox
 
 # on init
 func _ready():
 	animationTree.active = true
+	swordHitbox.knockback_vector = roll_vector
 	# message to server -> playerJoin
 
 # every frame
@@ -47,6 +49,7 @@ func move_state(delta):
 	
 	if input_vector != Vector2.ZERO:
 		roll_vector = input_vector
+		swordHitbox.knockback_vector = input_vector
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
@@ -82,6 +85,7 @@ func move():
 	velocity = move_and_slide(velocity)
 
 func roll_animation_finished():
+	velocity = velocity * 0.8
 	state = MOVE
 
 func attack_animation_finished():
