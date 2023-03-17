@@ -31,6 +31,8 @@ func _ready():
 	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
+	stats.health = stats.max_health
+	
 	# message to server -> playerJoin
 
 # every frame
