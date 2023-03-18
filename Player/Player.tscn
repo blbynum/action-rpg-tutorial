@@ -396,6 +396,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Hurtbox:invincible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=51]
 resource_name = "RollDown"
@@ -439,6 +451,23 @@ tracks/2/keys = {
 "stream": ExtResource( 8 )
 } ],
 "times": PoolRealArray( 0.1 )
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Hurtbox")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_dodge"
+}, {
+"args": [  ],
+"method": "end_dodge"
+} ]
 }
 
 [sub_resource type="Animation" id=50]
@@ -484,6 +513,23 @@ tracks/2/keys = {
 } ],
 "times": PoolRealArray( 0.1 )
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath("Hurtbox")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_dodge"
+}, {
+"args": [  ],
+"method": "end_dodge"
+} ]
+}
 
 [sub_resource type="Animation" id=48]
 resource_name = "RollRight"
@@ -528,6 +574,23 @@ tracks/2/keys = {
 } ],
 "times": PoolRealArray( 0.1 )
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath("Hurtbox")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_dodge"
+}, {
+"args": [  ],
+"method": "end_dodge"
+} ]
+}
 
 [sub_resource type="Animation" id=49]
 resource_name = "RollUp"
@@ -571,6 +634,23 @@ tracks/2/keys = {
 "stream": ExtResource( 8 )
 } ],
 "times": PoolRealArray( 0.1 )
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Hurtbox")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_dodge"
+}, {
+"args": [  ],
+"method": "end_dodge"
+} ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -824,8 +904,10 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( -2, 0 )
 collision_layer = 2
 script = ExtResource( 1 )
+RUN_SPEED = 150
 
 [node name="ShadowSprite" type="Sprite" parent="."]
 position = Vector2( 0, 1 )
@@ -896,7 +978,7 @@ position = Vector2( 0, -4 )
 shape = SubResource( 58 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 volume_db = -12.093
 
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -905,8 +987,8 @@ anims/Start = SubResource( 60 )
 anims/Stop = SubResource( 61 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
-[connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
+[connection signal="hurt_cooldown_ended" from="Hurtbox" to="." method="_on_Hurtbox_hurt_cooldown_ended"]
+[connection signal="hurt_cooldown_started" from="Hurtbox" to="." method="_on_Hurtbox_hurt_cooldown_started"]
 
 [editable path="HitboxPivot/SwordHitbox"]
 [editable path="Hurtbox"]

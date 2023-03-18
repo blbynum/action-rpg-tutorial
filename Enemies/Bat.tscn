@@ -116,7 +116,6 @@ script = ExtResource( 3 )
 material = SubResource( 12 )
 frames = SubResource( 6 )
 animation = "Fly"
-frame = 2
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -160,15 +159,15 @@ shape = SubResource( 11 )
 
 [node name="WanderController" parent="." instance=ExtResource( 9 )]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 anims/RESET = SubResource( 13 )
 anims/Start = SubResource( 14 )
 anims/Stop = SubResource( 15 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
-[connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
+[connection signal="hurt_cooldown_ended" from="Hurtbox" to="." method="_on_Hurtbox_hurt_cooldown_ended"]
+[connection signal="hurt_cooldown_started" from="Hurtbox" to="." method="_on_Hurtbox_hurt_cooldown_started"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 
 [editable path="Hurtbox"]
